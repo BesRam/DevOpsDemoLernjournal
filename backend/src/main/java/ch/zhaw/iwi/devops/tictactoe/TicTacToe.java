@@ -40,6 +40,14 @@ public class TicTacToe {
                 return true;
             }
         }
+        // Prüfung der Hauptdiagonale
+        if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+            return true;
+        }
+        // Prüfung der Nebendiagonale
+        if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            return true;
+        }
         return false;
     }
 }
