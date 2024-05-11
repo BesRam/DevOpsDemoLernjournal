@@ -15,9 +15,9 @@ public class TicTacToe {
     }
 
     public void makeMove(int row, int col) {
-        if (board[row][col] == ' ') { // Prüft, ob das Feld leer ist
-            board[row][col] = currentPlayer; // Setzt den Markierungswert des aktuellen Spielers
-            togglePlayer(); // Wechselt den Spieler
+        if (board[row][col] == ' ') {
+            board[row][col] = currentPlayer;
+            togglePlayer();
         }
     }
 
@@ -27,5 +27,15 @@ public class TicTacToe {
 
     public char getMarkAt(int row, int col) {
         return board[row][col];
+    }
+
+    public boolean hasWinner() {
+        for (int row = 0; row < 3; row++) {
+            if (board[row][0] != ' ' &&
+                board[row][0] == board[row][1] && board[row][1] == board[row][2]) {
+                return true;
+            }
+        }
+        return false;
     }
 }
