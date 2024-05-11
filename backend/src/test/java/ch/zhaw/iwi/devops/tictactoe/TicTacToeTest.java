@@ -42,6 +42,7 @@ public class TicTacToeTest {
         game.makeMove(1, 1); // O
         game.makeMove(0, 2); // X gewinnt auf der obersten Reihe
         assertTrue(game.hasWinner());
+        assertFalse(game.isDraw());
     }
 
     @Test
@@ -53,6 +54,7 @@ public class TicTacToeTest {
         game.makeMove(1, 1); // O
         game.makeMove(2, 0); // X gewinnt durch die erste Spalte
         assertTrue(game.hasWinner());
+        assertFalse(game.isDraw());
     }
 
     @Test
@@ -80,6 +82,7 @@ public class TicTacToeTest {
         game.makeMove(2, 2); // X
         assertFalse(game.hasWinner());
         assertTrue(game.isDraw());
+        assertFalse(game.isInProgress());
     }
 
     @Test
@@ -131,4 +134,16 @@ public class TicTacToeTest {
         game.makeMove(2, 2); // X
         assertFalse(game.isInProgress()); // Das Spiel sollte nicht mehr aktiv sein, da alle Felder besetzt sind
     }
+
+    @Test
+    public void testWinByAntiDiagonal() {
+        game.makeMove(0, 2); // X
+        game.makeMove(0, 0); // O
+        game.makeMove(1, 1); // X
+        game.makeMove(0, 1); // O
+        game.makeMove(2, 0); // X wins by anti-diagonal
+        assertTrue(game.hasWinner());
+        assertFalse(game.isDraw());
+    }
+
 }
