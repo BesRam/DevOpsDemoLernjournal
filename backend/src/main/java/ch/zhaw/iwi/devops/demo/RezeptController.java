@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RezeptController {
     
+    private static final Logger logger = Logger.getLogger(RezeptController.class.getName());
     private Map<Integer, Rezept> rezepte = new HashMap<>();
 
     @EventListener(ApplicationReadyEvent.class)
@@ -30,7 +32,7 @@ public class RezeptController {
         this.rezepte.put(3,new Rezept(3, "Tsatsiki", "Griechenland", "Griechisches Tsatsiki mit Brot"));
         this.rezepte.put(4,new Rezept(4, "Currywurst", "Deutschland", "Deutsche Currywurst mit Ketchup"));
         this.rezepte.put(5,new Rezept(5, "Fajita", "Mexiko", "Mexikanische Fajitas mit Poulet"));
-        System.out.println("Init Data");
+        logger.info("Init Data");
     }
 
     @GetMapping("/recipetest")
