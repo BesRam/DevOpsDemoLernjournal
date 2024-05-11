@@ -146,6 +146,35 @@ export class GuiModel {
                         }
                     ]
                 },
+                {
+                    "id": "recipePage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": { default: "Neues Rezept"},
+                            "icon": "fa-list",
+                            "color": "purple",
+                            "width": 2,
+                            "form" : {
+                                "form" : "RecipeForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "name": "Rezepte",
+                            "icon": "fa-list",
+                            "color": "green",
+                            "search": true,
+                            "url": "/rezept",
+                            "form": {
+                                "form": "RecipeForm"
+                            }
+                        }
+                    ]
+                },
             ]
         }
     };
