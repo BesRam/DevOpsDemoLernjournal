@@ -15,7 +15,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testBoardIsInitiallyEmpty() {
+    public void boardShouldBeEmptyInitially() {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 assertEquals(' ', game.getMarkAt(row, col));
@@ -24,13 +24,12 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testPlayersAlternateTurns() {
-        TicTacToe game = new TicTacToe();
-        game.makeMove(0, 0); // Spieler X macht einen Zug
+    public void playersShouldAlternate() {
+        game.makeMove(0, 0);
         assertEquals('X', game.getMarkAt(0, 0));
-        game.makeMove(0, 1); // Spieler O macht den nächsten Zug
+        game.makeMove(0, 1);
         assertEquals('O', game.getMarkAt(0, 1));
-        game.makeMove(1, 0); // Spieler X ist wieder dran
+        game.makeMove(1, 0);
         assertEquals('X', game.getMarkAt(1, 0));
     }
 

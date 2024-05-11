@@ -1,24 +1,28 @@
 package ch.zhaw.iwi.devops.tictactoe;
 
+import java.util.Arrays;
+
 public class TicTacToe {
+    private static final char EMPTY = ' ';
+    private static final char PLAYER_X = 'X';
+    private static final char PLAYER_O = 'O';
     private char[][] board;
     private char currentPlayer;
 
     public TicTacToe() {
         board = new char[3][3];
-        currentPlayer = 'X'; // X beginnt das Spiel
-        resetBoard(); // Initialisiert das Board beim Erstellen einer neuen Instanz
+        resetBoard();
     }
 
     public void makeMove(int row, int col) {
-        if (board[row][col] == ' ') {
+        if (board[row][col] == EMPTY) {
             board[row][col] = currentPlayer;
             togglePlayer();
         }
     }
 
     private void togglePlayer() {
-        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+        currentPlayer = (currentPlayer == PLAYER_X) ? PLAYER_O : PLAYER_X;
     }
 
     public char getCurrentPlayer() {
@@ -31,33 +35,26 @@ public class TicTacToe {
 
     public void resetBoard() {
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = ' ';
-            }
+            Arrays.fill(board[i], EMPTY);
         }
-        currentPlayer = 'X'; // Setzt den aktuellen Spieler auf X zurück
+        currentPlayer = PLAYER_X;
     }
 
     public boolean hasWinner() {
-        for (int row = 0; row < 3; row++) {
-            if (board[row][0] != ' ' && board[row][0] == board[row][1] && board[row][1] == board[row][2]) {
-                return true;
-            }
+        return checkWin(PLAYER_X) || checkWin(PLAYER_O);
+    }
+
+    private boolean checkWin(char player) {
+        for (int i = 0; i < 3; i++) {
+            if (checkRowColDiag(player, i)) return true;
         }
-        for (int col = 0; col < 3; col++) {
-            if (board[0][col] != ' ' && board[0][col] == board[1][col] && board[1][col] == board[2][col]) {
-                return true;
-            }
-        }
-        // Prüfung der Hauptdiagonale
-        if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
-            return true;
-        }
-        // Prüfung der Nebendiagonale
-        if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-            return true;
-        }
-        return false;
+        return (board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
+               (board[0][2] == player && board[1][1] == player && board[2][0] == player);
+    }
+
+    private boolean checkRowColDiag(char player, int index) {
+        return (board[index][0] == player && board[index][1] == player && board[index][2] == player) ||
+               (board[0][index] == player && board[1][index] == player && board[2][index] == player);
     }
 
     public boolean isDraw() {
@@ -66,7 +63,7 @@ public class TicTacToe {
         }
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
-                if (board[row][col] == ' ') {
+                if (board[row][col] == EMPTY) {
                     return false; // Wenn ein Feld leer ist, ist das Spiel noch nicht vorbei
                 }
             }
