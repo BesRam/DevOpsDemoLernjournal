@@ -107,6 +107,14 @@ export class GuiModel {
                             "width": 2,
                             "newRow": true,
                         },
+                        {
+                            "type": "button",
+                            "name": { default: "Rezepte" },
+                            "icon": "fa-file-alt",
+                            "color": "wet-asphalt",
+                            "page": "recipePage",
+                            "width": 2
+                        }
                     ]
                 },
                 {
