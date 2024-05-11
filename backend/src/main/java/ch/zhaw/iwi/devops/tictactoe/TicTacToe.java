@@ -31,8 +31,12 @@ public class TicTacToe {
 
     public boolean hasWinner() {
         for (int row = 0; row < 3; row++) {
-            if (board[row][0] != ' ' &&
-                board[row][0] == board[row][1] && board[row][1] == board[row][2]) {
+            if (board[row][0] != ' ' && board[row][0] == board[row][1] && board[row][1] == board[row][2]) {
+                return true;
+            }
+        }
+        for (int col = 0; col < 3; col++) {
+            if (board[0][col] != ' ' && board[0][col] == board[1][col] && board[1][col] == board[2][col]) {
                 return true;
             }
         }
