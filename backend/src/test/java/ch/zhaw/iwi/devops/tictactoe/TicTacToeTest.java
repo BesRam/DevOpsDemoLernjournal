@@ -20,4 +20,15 @@ public class TicTacToeTest {
             }
         }
     }
+
+    @Test
+    public void testPlayersAlternateTurns() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0); // Spieler X macht einen Zug
+        assertEquals('X', game.getMarkAt(0, 0));
+        game.makeMove(0, 1); // Spieler O macht den nächsten Zug
+        assertEquals('O', game.getMarkAt(0, 1));
+        game.makeMove(1, 0); // Spieler X ist wieder dran
+        assertEquals('X', game.getMarkAt(1, 0));
+    }
 }
