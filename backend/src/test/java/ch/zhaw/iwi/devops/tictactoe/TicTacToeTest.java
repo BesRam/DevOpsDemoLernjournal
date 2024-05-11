@@ -54,4 +54,15 @@ public class TicTacToeTest {
         game.makeMove(2, 0); // X gewinnt durch die erste Spalte
         assertTrue(game.hasWinner());
     }
+
+    @Test
+    public void testWinByDiagonal() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0); // X
+        game.makeMove(0, 1); // O
+        game.makeMove(1, 1); // X
+        game.makeMove(0, 2); // O
+        game.makeMove(2, 2); // X gewinnt durch Hauptdiagonale
+        assertTrue(game.hasWinner());
+    }
 }
