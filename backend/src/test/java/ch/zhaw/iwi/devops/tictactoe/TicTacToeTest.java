@@ -100,4 +100,17 @@ public class TicTacToeTest {
         game.makeMove(0, 1); // O zieht
         assertEquals('X', game.getCurrentPlayer()); // Wechsel zurück zu X
     }
+
+    @Test
+    public void testResetBoard() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0); // X macht einen Zug
+        game.makeMove(1, 1); // O macht einen Zug
+        game.resetBoard();   // Setzt das Spielfeld zurück
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                assertEquals(' ', game.getMarkAt(row, col)); // Alle Felder sollten leer sein
+            }
+        }
+    }
 }
