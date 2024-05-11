@@ -90,4 +90,14 @@ public class TicTacToeTest {
         game.makeMove(0, 0); // O versucht, auf das gleiche Feld zu ziehen
         assertEquals('X', game.getMarkAt(0, 0)); // Das Feld sollte immer noch von X besetzt sein
     }
+
+    @Test
+    public void testCurrentPlayerDisplay() {
+        TicTacToe game = new TicTacToe();
+        assertEquals('X', game.getCurrentPlayer()); // X beginnt
+        game.makeMove(0, 0); // X zieht
+        assertEquals('O', game.getCurrentPlayer()); // Nun sollte O am Zug sein
+        game.makeMove(0, 1); // O zieht
+        assertEquals('X', game.getCurrentPlayer()); // Wechsel zurück zu X
+    }
 }
