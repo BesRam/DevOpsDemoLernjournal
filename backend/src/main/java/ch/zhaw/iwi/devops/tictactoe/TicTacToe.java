@@ -50,4 +50,18 @@ public class TicTacToe {
         }
         return false;
     }
+
+    public boolean isDraw() {
+        if (hasWinner()) {
+            return false; // Wenn es einen Gewinner gibt, kann es kein Unentschieden sein
+        }
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (board[row][col] == ' ') {
+                    return false; // Wenn ein Feld leer ist, ist das Spiel noch nicht vorbei
+                }
+            }
+        }
+        return true; // Keine leeren Felder und kein Gewinner = Unentschieden
+    }
 }
