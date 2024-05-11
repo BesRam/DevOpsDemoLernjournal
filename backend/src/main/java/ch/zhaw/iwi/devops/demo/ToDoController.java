@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ToDoController {
 
-    private Map<Integer, ToDo> todos = new HashMap<Integer, ToDo>();
+    private Map<Integer, ToDo> todos = new HashMap<>();
     private static final Logger logger = Logger.getLogger(ToDoController.class.getName());
 
     @EventListener(ApplicationReadyEvent.class)
