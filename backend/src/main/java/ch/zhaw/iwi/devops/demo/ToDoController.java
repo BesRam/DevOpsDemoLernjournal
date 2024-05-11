@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ToDoController {
 
     private Map<Integer, ToDo> todos = new HashMap<Integer, ToDo>();
+    private static final Logger logger = Logger.getLogger(ToDoController.class.getName());
 
     @EventListener(ApplicationReadyEvent.class)
     public void init() {
@@ -30,7 +32,7 @@ public class ToDoController {
         this.todos.put(3,new ToDo(3, "Unit Tests", "Neues Projekt mit Unit Tests starten"));
         this.todos.put(4,new ToDo(4, "Deployment", "Jede Woche!"));
         this.todos.put(5,new ToDo(5, "Organigramm", "Löschen"));
-        System.out.println("Init Data");
+        logger.info("Init Data"); // System.out.println("Init Data") ersetzen
     }
 
     @GetMapping("/test")
