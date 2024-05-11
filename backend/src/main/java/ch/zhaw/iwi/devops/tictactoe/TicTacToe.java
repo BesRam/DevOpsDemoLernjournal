@@ -73,4 +73,8 @@ public class TicTacToe {
         }
         return true; // Keine leeren Felder und kein Gewinner = Unentschieden
     }
+
+    public boolean isInProgress() {
+        return !hasWinner() && !isDraw();
+    }
 }
