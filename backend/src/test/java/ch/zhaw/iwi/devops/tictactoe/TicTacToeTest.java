@@ -1,5 +1,6 @@
 package ch.zhaw.iwi.devops.tictactoe;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -64,5 +65,21 @@ public class TicTacToeTest {
         game.makeMove(0, 2); // O
         game.makeMove(2, 2); // X gewinnt durch Hauptdiagonale
         assertTrue(game.hasWinner());
+    }
+
+    @Test
+    public void testGameDraw() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0); // X
+        game.makeMove(1, 1); // O
+        game.makeMove(0, 1); // X
+        game.makeMove(0, 2); // O
+        game.makeMove(2, 0); // X
+        game.makeMove(1, 0); // O
+        game.makeMove(1, 2); // X
+        game.makeMove(2, 1); // O
+        game.makeMove(2, 2); // X
+        assertFalse(game.hasWinner());
+        assertTrue(game.isDraw());
     }
 }
