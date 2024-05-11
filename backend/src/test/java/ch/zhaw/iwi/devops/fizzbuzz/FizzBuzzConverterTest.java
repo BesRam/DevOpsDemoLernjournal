@@ -54,4 +54,10 @@ public class FizzBuzzConverterTest {
         Assertions.assertEquals("FizzBuzz", fizzBuzz.convert(63));
     }
 
+    @Test
+    public void testBoomForMultiplesOfEleven() {
+        FizzBuzzConverter fizzBuzz = new FizzBuzzConverter();
+        Assertions.assertEquals("Boom", fizzBuzz.convert(11));  // Dieser Test wird fehlschlagen, weil es aktuell keine solche Regel gibt
+    }
+
 }
