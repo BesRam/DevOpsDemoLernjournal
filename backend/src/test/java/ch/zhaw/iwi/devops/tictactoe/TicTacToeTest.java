@@ -113,4 +113,23 @@ public class TicTacToeTest {
             }
         }
     }
+
+    @Test
+    public void testGameInProgress() {
+        TicTacToe game = new TicTacToe();
+        assertTrue(game.isInProgress()); // Das Spiel sollte aktiv sein, da noch kein Zug gemacht wurde
+
+        game.makeMove(0, 0); // X
+        game.makeMove(0, 1); // O
+        game.makeMove(0, 2); // X
+        assertTrue(game.isInProgress()); // Das Spiel sollte immer noch aktiv sein
+
+        game.makeMove(1, 0); // O
+        game.makeMove(1, 1); // X
+        game.makeMove(1, 2); // O
+        game.makeMove(2, 0); // X
+        game.makeMove(2, 1); // O
+        game.makeMove(2, 2); // X
+        assertFalse(game.isInProgress()); // Das Spiel sollte nicht mehr aktiv sein, da alle Felder besetzt sind
+    }
 }
