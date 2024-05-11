@@ -87,6 +87,45 @@ export class GuiModel {
                         }
                     ]
                 },
+                {
+                    "id": "RecipeForm",
+                    "title": { default: "Rezept" },
+                    "url": "/recipe",
+                    "formFieldList": [
+                        {
+                            "id":   "title",
+                            "type": "text",
+                            "name": { default: "Gericht" },
+                            "required": true
+                        },
+                        {
+                            "id": "origin",
+                            "type": "text",
+                            "name": { default: "Herkunft" }
+                        },
+                        {
+                            "id": "description",
+                            "type": "text",
+                            "name": { default: "Beschreibung" },
+                            "newRow": true,
+                            "maxLength": 4000,
+                            "height": 4,
+                            "width": 2
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok"
+                        }
+                    ]
+                },
             ],
             "pageList": [
                 {
@@ -168,7 +207,7 @@ export class GuiModel {
                             "icon": "fa-list",
                             "color": "green",
                             "search": true,
-                            "url": "/rezept",
+                            "url": "/recipe",
                             "form": {
                                 "form": "RecipeForm"
                             }
