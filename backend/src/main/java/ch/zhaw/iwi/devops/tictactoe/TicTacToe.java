@@ -7,11 +7,7 @@ public class TicTacToe {
     public TicTacToe() {
         board = new char[3][3];
         currentPlayer = 'X'; // X beginnt das Spiel
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = ' ';
-            }
-        }
+        resetBoard(); // Initialisiert das Board beim Erstellen einer neuen Instanz
     }
 
     public void makeMove(int row, int col) {
@@ -31,6 +27,15 @@ public class TicTacToe {
 
     public char getMarkAt(int row, int col) {
         return board[row][col];
+    }
+
+    public void resetBoard() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = ' ';
+            }
+        }
+        currentPlayer = 'X'; // Setzt den aktuellen Spieler auf X zurück
     }
 
     public boolean hasWinner() {
