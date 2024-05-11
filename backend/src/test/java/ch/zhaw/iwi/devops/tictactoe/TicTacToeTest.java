@@ -82,4 +82,12 @@ public class TicTacToeTest {
         assertFalse(game.hasWinner());
         assertTrue(game.isDraw());
     }
+
+    @Test
+    public void testInvalidMoveOnTakenSquare() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0); // X macht den ersten Zug
+        game.makeMove(0, 0); // O versucht, auf das gleiche Feld zu ziehen
+        assertEquals('X', game.getMarkAt(0, 0)); // Das Feld sollte immer noch von X besetzt sein
+    }
 }
