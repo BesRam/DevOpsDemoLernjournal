@@ -25,6 +25,10 @@ public class TicTacToe {
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 
+    public char getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public char getMarkAt(int row, int col) {
         return board[row][col];
     }
