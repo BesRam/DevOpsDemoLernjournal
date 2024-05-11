@@ -43,4 +43,15 @@ public class TicTacToeTest {
         game.makeMove(0, 2); // X gewinnt auf der obersten Reihe
         assertTrue(game.hasWinner());
     }
+
+    @Test
+    public void testWinByColumn() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0); // X
+        game.makeMove(0, 1); // O
+        game.makeMove(1, 0); // X
+        game.makeMove(1, 1); // O
+        game.makeMove(2, 0); // X gewinnt durch die erste Spalte
+        assertTrue(game.hasWinner());
+    }
 }
