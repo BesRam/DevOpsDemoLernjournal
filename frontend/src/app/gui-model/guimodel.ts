@@ -222,6 +222,35 @@ export class GuiModel {
                         }
                     ]
                 },
+                {
+                    "id": "personPage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": { default: "Neue Person"},
+                            "icon": "fa-list",
+                            "color": "purple",
+                            "width": 2,
+                            "form" : {
+                                "form" : "PersonForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "name": "Personen",
+                            "icon": "fa-list",
+                            "color": "green",
+                            "search": true,
+                            "url": "/person",
+                            "form": {
+                                "form": "PersonForm"
+                            }
+                        }
+                    ]
+                },
             ]
         }
     };
