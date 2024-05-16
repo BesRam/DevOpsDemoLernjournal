@@ -153,6 +153,14 @@ export class GuiModel {
                             "color": "wet-asphalt",
                             "page": "recipePage",
                             "width": 2
+                        },
+                        {
+                            "type": "button",
+                            "name": { default: "Personen" },
+                            "icon": "fa-file-alt",
+                            "color": "wet-asphalt",
+                            "page": "recipePage",
+                            "width": 2
                         }
                     ]
                 },
